@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { persistor, store } from "./app/store.ts";
-import { Counter } from "./counter/Counter.tsx";
 import { PersistGate } from "redux-persist/integration/react";
 
 createRoot(document.getElementById("root")!).render(
@@ -12,7 +11,6 @@ createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App />
-        <Counter />
       </PersistGate>
     </Provider>
   </StrictMode>
