@@ -1,3 +1,14 @@
+.login {
+  max-width: 500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+sup {
+  font-size: 70%;
+}
+
 .link-gmail {
   color: #fff;
   background-color: #2e55a1;
@@ -28,4 +39,18 @@
 
 .hr-text {
   font-weight: bold; /* Hace el texto más grueso */
+}
+
+.button-login {
+  margin-top: 50px;
+}
+
+.button-login button {
+  background-color: #3aeb5d;
+  color: white;
+  font-weight: 500;
+  padding: 7px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 20px;
 }

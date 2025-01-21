@@ -1,7 +1,7 @@
 input {
   padding: 10px;
-  padding-right: 200px;
   border: none;
+  width: 90%;
   background-color: #3d3d3d;
 }
 
@@ -23,6 +23,10 @@ input::placeholder {
 }
 
 .password {
+  position: relative;
+}
+
+.container-input {
   position: relative;
 }
 
@@ -81,4 +85,8 @@ input::placeholder {
 
 .toggle .translate-x-0 {
   transform: translateX(0);
+}
+
+.input-field {
+  margin-top: 20px;
 }
