@@ -2,8 +2,12 @@ import { useState } from "react";
 import InputCustom from "../components/InputCustom";
 import "../styles/login.css";
 import { googleFontUrl } from "../utilities/fonts";
+import { useNavigate } from "react-router";
+import LoginGmail from "../components/ButtonLoginGmail";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -22,11 +26,15 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      setError("Todos los campos son obligatorios");
+      setError("All fields are required");
       return;
     }
     // Lógica para enviar el formulario
-    console.log("Datos del formulario:", formData);
+    console.log("Form data:", formData);
+  };
+
+  const handleNavigation = () => {
+    navigate("/register");
   };
 
   return (
@@ -38,14 +46,10 @@ const Login = () => {
       </h1>
 
       <div className="inputGmail">
-        <a
-          className="link-gmail"
-          href="https://mail.google.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        {/* <a className="link-gmail" target="_blank" rel="noopener noreferrer">
           <span className="text-gmail">LOG IN WITH GOOGLE</span>
-        </a>
+        </a> */}
+        <LoginGmail />
         <div className="hr-container">
           <hr className="hr-line" />
           <span className="hr-text">OR</span>
@@ -57,20 +61,20 @@ const Login = () => {
         <InputCustom
           type="email"
           value={formData.email}
-          placeholder="Ingresa tu correo electronico"
+          placeholder="Enter your email"
           onChange={handleChange}
           name="email"
           required
-          error={error && !formData.email ? "El correo es obligatorio" : ""}
+          error={error && !formData.email ? "Email is required" : ""}
         />
         <InputCustom
           type="password"
           value={formData.password}
-          placeholder="Ingresa tu contraseña"
+          placeholder="Enter your password"
           onChange={handleChange}
           name="password"
           required
-          error={error && !formData.email ? "El correo es obligatorio" : ""}
+          error={error && !formData.email ? "Password is required" : ""}
         />
         <div className="toggle">
           Remember me
@@ -79,12 +83,17 @@ const Login = () => {
             className={`${enabled ? "bg-blue" : "bg-gray-300"}`}
           >
             <span
-              className={`${enabled ? "translate-x-6" : "translate-x-0"}`}
+              className={`${enabled ? "translate-x-0" : "translate-x-6"}`}
             ></span>
           </button>
         </div>
         <div className="button-login">
-          <button type="submit">Iniciar Sesión</button>
+          <button type="submit">Login</button>
+        </div>
+        <div className="button-register">
+          <button type="submit" className="register" onClick={handleNavigation}>
+            Register
+          </button>
         </div>
       </form>
     </div>

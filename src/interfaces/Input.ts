@@ -6,4 +6,5 @@ export interface InputFieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; // Función para manejar cambios
   error?: string; // Mensaje de error
   required?: boolean; // Si el campo es obligatorio
+  id?: string; // Agrega esta línea
 }

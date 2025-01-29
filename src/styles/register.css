@@ -1,0 +1,37 @@
+.Register {
+  max-width: 500px;
+  width: 400px;
+}
+
+.register-button {
+  margin-top: 20px;
+  background-color: #1d82f0;
+  color: white;
+  font-weight: 500;
+  padding: 7px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 20px;
+}
+
+.register-button:focus {
+  outline: none;
+}
+
+a {
+  color: #1d82f0;
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+a:hover {
+  color: #ffff;
+}
+
+.option-alternative:focus {
+  outline: none;
+}
+
+.hr-register {
+  margin: 1px 0; /* Margen superior e inferior */
+}
