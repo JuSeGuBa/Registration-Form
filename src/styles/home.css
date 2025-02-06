@@ -1,0 +1,12 @@
+.letter {
+  position: relative;
+  display: inline-block;
+  font-size: 8rem;
+  transition: transform 0.2s ease-in-out; /* Movimiento suave por defecto */
+}
+
+.name {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out; /* Movimiento suave por defecto */
+}

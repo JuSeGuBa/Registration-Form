@@ -55,6 +55,10 @@ sup {
   border-radius: 20px;
 }
 
+button:focus {
+  outline: none;
+}
+
 .button-register {
   margin-top: 15px;
 }
@@ -70,5 +74,23 @@ sup {
 }
 
 .register:focus {
+  outline: none;
+}
+
+.button-recoverPassword {
+  margin-top: 5px;
+}
+
+.recoverPassword {
+  color: #aaa;
+  background: none;
+  transition: color 0.5s ease;
+}
+
+.recoverPassword:hover {
+  color: #1d82f0;
+}
+
+.recoverPassword:focus {
   outline: none;
 }

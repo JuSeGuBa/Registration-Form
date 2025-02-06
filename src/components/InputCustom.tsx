@@ -31,6 +31,7 @@ const InputCustom: React.FC<InputFieldProps> = ({
         />
         {type === "password" && (
           <button
+            type="button"
             className="eye-password"
             onClick={() => setShowPassword(!showPassword)}
             aria-label="Toggle password visibility"

@@ -2,6 +2,8 @@ import "../styles/register.css";
 import React, { useState } from "react";
 import InputCustom from "../components/InputCustom";
 import { useNavigate } from "react-router";
+import { auth } from "../config/firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ const Register = () => {
   });
 
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -22,11 +25,11 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { user, email, password, confirmPassword } = formData;
+    const { email, password, confirmPassword } = formData;
 
-    if (!user || !email || !password || !confirmPassword) {
+    if (!email || !password || !confirmPassword) {
       setError("All fields are required");
       return;
     }
@@ -36,9 +39,18 @@ const Register = () => {
       return;
     }
 
-    // Lógica para enviar el formulario
-    console.log("Form data:", formData);
-    setError(""); // Reinicia el error en caso de éxito
+    try {
+      // Crear usuario en Firebase
+      await createUserWithEmailAndPassword(auth, email, password);
+      setSuccessMessage("User registered successfully!");
+      setError("");
+
+      // Redirigir al login
+      setTimeout(() => navigate("/"), 2000);
+    } catch (err) {
+      setError("Failed to create an account. Try again.");
+      console.error("Firebase Error:", err);
+    }
   };
 
   const handleNavigation = () => {
@@ -47,8 +59,8 @@ const Register = () => {
 
   return (
     <div className="Register">
-      <form onSubmit={handleSubmit} className="tittle-register">
-        <h1>Register</h1>
+      <form onSubmit={handleSubmit}>
+        <h1 className="tittle-register">Register</h1>
         <div className="hr-register">
           <hr className="hr-line" />
         </div>
@@ -111,6 +123,7 @@ const Register = () => {
           Register
         </button>
         {error && <p style={{ color: "red" }}>{error}</p>}
+        {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
         <br />
         <p className="option-alternative">
           Or <a onClick={handleNavigation}>Sign in</a>

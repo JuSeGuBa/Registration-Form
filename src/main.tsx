@@ -10,6 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter } from "react-router";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CLIENT_ID } from "./consts/clientID.ts";
+import "./config/firebaseConfig.ts"; // Importa Firebase aquí
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
