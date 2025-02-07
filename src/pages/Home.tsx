@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import "../styles/home.css";
+import LogOut from "../components/ButtonLogOut";
 
 const Home = () => {
   useEffect(() => {
@@ -114,6 +115,8 @@ const Home = () => {
           n
         </span>
       </p>
+
+      <LogOut />
     </div>
   );
 };

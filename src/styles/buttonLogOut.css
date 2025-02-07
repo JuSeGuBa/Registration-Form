@@ -1,0 +1,14 @@
+.LogOut {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+  font-size: 2rem;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+.LogOut:hover {
+  color: #1d82f0;
+}
