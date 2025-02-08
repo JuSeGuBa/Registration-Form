@@ -7,9 +7,11 @@ import {
 } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
+const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+
 // Configuración de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCfQtKND9TYreF5ROVyojAqmKjDhwAQNE8",
+  apiKey,
   authDomain: "formulario-fb258.firebaseapp.com",
   databaseURL: "https://formulario-fb258-default-rtdb.firebaseio.com",
   projectId: "formulario-fb258",
