@@ -111,7 +111,7 @@ const Login = () => {
     <div className="Login">
       <link href={googleFontUrl} rel="stylesheet" />
 
-      <h1 style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <h1 style={{ color: "#FFFF", fontFamily: "'Poppins', sans-serif" }}>
         Log In <sup>®</sup>
       </h1>
 
