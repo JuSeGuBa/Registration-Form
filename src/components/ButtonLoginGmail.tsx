@@ -22,7 +22,7 @@ export default function LoginGmail({ setEmail }: LoginGmailProps) {
   }
 
   return (
-    <div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <GoogleLogin onError={handleError} onSuccess={handleSuccess} />
     </div>
   );
