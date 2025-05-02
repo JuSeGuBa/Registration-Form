@@ -4,6 +4,7 @@ import InputCustom from "../components/InputCustom";
 import { useNavigate } from "react-router";
 import { auth } from "../config/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -47,9 +48,20 @@ const Register = () => {
 
       // Redirigir al login
       setTimeout(() => navigate("/"), 2000);
-    } catch (err) {
-      setError("Failed to create an account. Try again.");
-      console.error("Firebase Error:", err);
+    } catch (err: unknown) {
+      const error = err as FirebaseError;
+
+      console.error("Firebase Error:", error.code);
+
+      if (error.code === "auth/email-already-in-use") {
+        setError("That email is already registered.");
+      } else if (error.code === "auth/invalid-email") {
+        setError("Invalid email address.");
+      } else if (error.code === "auth/weak-password") {
+        setError("Password should be at least 6 characters.");
+      } else {
+        setError("Failed to create an account. Try again.");
+      }
     }
   };
 
